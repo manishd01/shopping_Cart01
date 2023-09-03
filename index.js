@@ -13,7 +13,7 @@ server.use(express.static(path.resolve(__dirname, process.env.PUBLIC_DIR)));
 // server.use(express.static(process.env.PUBLIC_DIR));
 server.use(express.json());
 server.use(morgan("default"));
-server.use(path.resolve(__dirname, "api"), routes.prod_route);
+server.use("/api", routes.prod_route);
 server.use("*", (req, res) => {
   // res.sendFile(__dirname + "/build/index.html");
   res.sendFile(path.resolve(__dirname, "build", "index.html"));
